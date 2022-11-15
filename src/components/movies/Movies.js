@@ -11,15 +11,8 @@ export const Movies = () => {
                             className="card-img"
                         />
                         <div className="card-overlay">
-                            <div className="bookmark">
-                                <ion-icon name="bookmark-outline" />
-                            </div>
                             <div className="rating">
-                                <ion-icon name="star-outline" />
                                 <span>9</span>
-                            </div>
-                            <div className="play">
-                                <ion-icon name="play-circle-outline" />
                             </div>
                         </div>
                     </div>
