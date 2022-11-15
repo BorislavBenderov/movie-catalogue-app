@@ -1,8 +1,44 @@
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { createUserWithEmailAndPassword, setPersistence, browserLocalPersistence } from 'firebase/auth';
+import { AuthContext } from '../../contexts/AuthContext';
 import './auth.css';
 
 export const Register = () => {
+    const { auth } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const onRegister = (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+
+        const email = formData.get('email');
+        const password = formData.get('password');
+        const repeatPassword = formData.get('repeatPassword');
+
+        if (email === '' || password === '' || repeatPassword === '') {
+            alert('Please fill all the fields');
+            return;
+        }
+
+        if (password !== repeatPassword) {
+            alert('Your password and confirmation password do not match');
+            return;
+        }
+
+        setPersistence(auth, browserLocalPersistence)
+        .then(() => {
+            createUserWithEmailAndPassword(auth, email, password);
+        })
+        .catch((err) => {
+            alert(err.message);
+        })
+        navigate('/');
+    }
+
     return (
-        <form className='auth'>
+        <form className='auth' onSubmit={onRegister}>
             <h3>Register Here</h3>
             <label htmlFor="email"></label>
             <input type="text" placeholder="Email" id="email" name="email" />

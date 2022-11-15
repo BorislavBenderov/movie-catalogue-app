@@ -23,7 +23,7 @@ export const Login = () => {
 
         setPersistence(auth, browserLocalPersistence)
         .then(() => {
-            return signInWithEmailAndPassword(auth, email, password);
+            signInWithEmailAndPassword(auth, email, password);
         })
         .catch((err) => {
             alert(err.message);
