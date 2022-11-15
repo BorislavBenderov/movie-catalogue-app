@@ -3,7 +3,6 @@ export const Movies = () => {
         <section className="movies">
 
             <div className="movies-grid">
-
                 <div className="movie-card">
                     <div className="card-head">
                         <img
