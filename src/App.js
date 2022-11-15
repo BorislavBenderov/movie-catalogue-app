@@ -1,5 +1,6 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import { Header } from './components/header/Header';
-import { Banner } from './components/banner/Banner';
 import { Movies } from './components/movies/Movies';
 import { Footer } from './components/footer/Footer';
 import { Login } from './components/auth/Login';
@@ -9,14 +10,21 @@ import { EditMovie } from './components/create-edit/EditMovie';
 
 function App() {
   return (
-    <div className="container">
-      <Header />
-      <main>
-        <Banner />
-        <Movies />        
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="container">
+        <Header />
+        <main>
+          <Routes>
+            <Route path='/' element={<Movies />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/create' element={<CreateMovie />} />
+            <Route path='/edit/:movieId' element={<EditMovie />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </BrowserRouter >
   );
 }
 

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export const Header = () => {
     return (
         <header className="">
@@ -7,21 +9,20 @@ export const Header = () => {
                     <span className="two" />
                     <span className="three" />
                 </button>
-                <a href="#" className="navbar-brand">
+                <Link to="/" className="navbar-brand">
                     <img src="./movie.png" alt="" />
-                </a>
+                </Link>
                 <nav className="">
                     <ul className="navbar-nav">
                         <li>
-                            {" "}
-                            <a href="#" className="navbar-link">
+                            <Link to="/" className="navbar-link">
                                 Home
-                            </a>{" "}
+                            </Link>
                         </li>
                     </ul>
                 </nav>
                 <div className="navbar-actions">
-                    <form action="#" className="navbar-form">
+                    <form className="navbar-form">
                         <input
                             type="text"
                             name="search"
@@ -37,21 +38,21 @@ export const Header = () => {
                     </form>
                     <button className="navbar-search-btn">
                     </button>
-                    <a href="#" className="navbar-signin">
+                    <Link to="/login" className="navbar-signin">
                         <span>Login</span>
-                    </a>
-                    <a href="#" className="navbar-signin">
+                    </Link>
+                    <Link to="/register" className="navbar-signin">
                         <span>Register</span>
-                    </a>
-                    <a href="#" className="navbar-signin">
+                    </Link>
+                    <Link to="#" className="navbar-signin">
                         <span>Logout</span>
-                    </a>
-                    <a href="#" className="navbar-signin">
+                    </Link>
+                    <Link to="/create" className="navbar-signin">
                         <span>Create Movie</span>
-                    </a>
-                    <a href="#" className="navbar-signin">
+                    </Link>
+                    <Link to="/mymovies" className="navbar-signin">
                         <span>My Movies</span>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </header>
