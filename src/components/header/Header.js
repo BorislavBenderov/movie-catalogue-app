@@ -4,19 +4,19 @@ import { AuthContext } from '../../contexts/AuthContext';
 import { useContext } from 'react';
 
 export const Header = () => {
-    const { auth } = useContext(AuthContext);
+    const { auth, loggedUser } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const onLogout = () => {
         signOut(auth)
-        .then(() => {
-            navigate('/');
-        })
-        .catch((err) => {
-            alert(err.message);
-        })
+            .then(() => {
+                navigate('/');
+            })
+            .catch((err) => {
+                alert(err.message);
+            })
     }
-    
+
     return (
         <header className="">
             <div className="navbar">
@@ -46,29 +46,30 @@ export const Header = () => {
                             className="navbar-form-search"
                         />
                         <button className="navbar-form-btn">
-                            
+
                         </button>
                         <button className="navbar-form-close">
-                            
+
                         </button>
                     </form>
                     <button className="navbar-search-btn">
                     </button>
-                    <Link to="/login" className="navbar-signin">
-                        <span>Login</span>
-                    </Link>
-                    <Link to="/register" className="navbar-signin">
-                        <span>Register</span>
-                    </Link>
-                    <Link to="#" className="navbar-signin" onClick={onLogout}>
-                        <span>Logout</span>
-                    </Link>
-                    <Link to="/create" className="navbar-signin">
-                        <span>Create Movie</span>
-                    </Link>
-                    <Link to="/mymovies" className="navbar-signin">
-                        <span>My Movies</span>
-                    </Link>
+                    {!loggedUser
+                        ? <> <Link to="/login" className="navbar-signin">
+                            <span>Login</span>
+                        </Link>
+                            <Link to="/register" className="navbar-signin">
+                                <span>Register</span>
+                            </Link> </>
+                        : <> <Link to="/mymovies" className="navbar-signin">
+                            <span>My Movies</span>
+                        </Link>
+                            <Link to="/create" className="navbar-signin">
+                                <span>Create Movie</span>
+                            </Link>
+                            <Link to="#" className="navbar-signin" onClick={onLogout}>
+                                <span>Logout</span>
+                            </Link> </>}
                 </div>
             </div>
         </header>
