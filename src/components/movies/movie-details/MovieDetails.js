@@ -1,11 +1,12 @@
-import { doc, onSnapshot } from 'firebase/firestore';
+import { deleteDoc, doc, onSnapshot } from 'firebase/firestore';
 import { useContext, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { MovieContext } from '../../../contexts/MovieContext';
 import { database } from '../../../firebaseConfig';
 import './MovieDetails.css';
 
 export const MovieDetails = () => {
+    const navigate = useNavigate();
     const { currentMovie, setCurrentMovie } = useContext(MovieContext);
     const { movieId } = useParams();
 
@@ -15,6 +16,22 @@ export const MovieDetails = () => {
             setCurrentMovie({ ...snapshot.data(), id: snapshot.id });
         })
     }, []);
+
+    const onDelete = (id, e) => {
+        const confirmation = window.confirm('Are you sure you want to delete this post?');
+
+        if (confirmation) {
+            e.preventDefault();
+
+            deleteDoc(doc(database, 'movies', id))
+            .then(() => {
+                navigate('/');
+            })
+            .catch((err) => {
+                alert(err.message);
+            })
+        }
+    }
 
     return (
         <div className="card">
@@ -39,8 +56,8 @@ export const MovieDetails = () => {
                         </p>
                     </div>
                     <div className="users-buttons">
-                    <Link to={`/edit/${currentMovie.id}`}>Edit</Link>
-                    <Link to={`/edit/${currentMovie.id}`}>Delete</Link>
+                        <Link to={`/edit/${currentMovie.id}`}>Edit</Link>
+                        <Link to={'#'} onClick={(e) => onDelete(movieId, e)}>Delete</Link>
                     </div>
                 </div>
             </section>

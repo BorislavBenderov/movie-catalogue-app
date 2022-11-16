@@ -4,7 +4,7 @@ import { MovieCard } from './MovieCard';
 
 export const Movies = () => {
     const { movies } = useContext(MovieContext);
-
+    
     return (
         <>
             <section className="banner">
