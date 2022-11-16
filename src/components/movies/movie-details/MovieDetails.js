@@ -1,11 +1,12 @@
 import { doc, onSnapshot } from 'firebase/firestore';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { MovieContext } from '../../../contexts/MovieContext';
 import { database } from '../../../firebaseConfig';
 import './MovieDetails.css';
 
 export const MovieDetails = () => {
-    const [currentMovie, setCurrentMovie] = useState([]);
+    const { currentMovie, setCurrentMovie } = useContext(MovieContext);
     const { movieId } = useParams();
 
 

@@ -6,6 +6,7 @@ export const MovieContext = createContext();
 
 export const MovieContextProvider = ({ children }) => {
     const [movies, setMovies] = useState([]);
+    const [currentMovie, setCurrentMovie] = useState([]);
 
     useEffect(() => {
         const q = query(collection(database, 'movies'), orderBy("timestamp", "desc"));
@@ -17,7 +18,7 @@ export const MovieContextProvider = ({ children }) => {
     }, []);
 
     return (
-        <MovieContext.Provider value={{ movies, setMovies }}>
+        <MovieContext.Provider value={{ movies, setMovies, currentMovie, setCurrentMovie }}>
             {children}
         </MovieContext.Provider>
     );
