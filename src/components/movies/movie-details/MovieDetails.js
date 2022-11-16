@@ -2,14 +2,21 @@ import { deleteDoc, doc, onSnapshot } from 'firebase/firestore';
 import { useContext, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { MovieContext } from '../../../contexts/MovieContext';
+import { AuthContext } from '../../../contexts/AuthContext';
 import { database } from '../../../firebaseConfig';
 import './MovieDetails.css';
 
 export const MovieDetails = () => {
     const navigate = useNavigate();
     const { currentMovie, setCurrentMovie } = useContext(MovieContext);
+    const { loggedUser } = useContext(AuthContext);
     const { movieId } = useParams();
 
+    let isOwner = null;
+
+    if (loggedUser) {
+        isOwner = currentMovie.ownerId === loggedUser.uid;
+    }
 
     useEffect(() => {
         onSnapshot(doc(database, 'movies', movieId), (snapshot) => {
@@ -24,12 +31,12 @@ export const MovieDetails = () => {
             e.preventDefault();
 
             deleteDoc(doc(database, 'movies', id))
-            .then(() => {
-                navigate('/');
-            })
-            .catch((err) => {
-                alert(err.message);
-            })
+                .then(() => {
+                    navigate('/');
+                })
+                .catch((err) => {
+                    alert(err.message);
+                })
         }
     }
 
@@ -55,10 +62,13 @@ export const MovieDetails = () => {
                             {currentMovie.description}
                         </p>
                     </div>
-                    <div className="users-buttons">
-                        <Link to={`/edit/${currentMovie.id}`}>Edit</Link>
-                        <Link to={'#'} onClick={(e) => onDelete(movieId, e)}>Delete</Link>
-                    </div>
+                    {isOwner
+                        ? <div className="users-buttons">
+                            <Link to={`/edit/${currentMovie.id}`}>Edit</Link>
+                            <Link to={'#'} onClick={(e) => onDelete(movieId, e)}>Delete</Link>
+                        </div>
+                        : ''}
+
                 </div>
             </section>
             <svg
