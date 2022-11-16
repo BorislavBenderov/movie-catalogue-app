@@ -202,3 +202,8 @@
     display: flex;
     justify-content: space-around;
   }
+
+  .likes {
+    display: flex;
+    justify-content: center;
+  }

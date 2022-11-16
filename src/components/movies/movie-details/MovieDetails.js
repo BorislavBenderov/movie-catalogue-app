@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { MovieContext } from '../../../contexts/MovieContext';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { database } from '../../../firebaseConfig';
+import { Likes } from './likes/Likes';
 import './MovieDetails.css';
 
 export const MovieDetails = () => {
@@ -51,6 +52,7 @@ export const MovieDetails = () => {
             </section>
             <section className="center">
                 <div className="about_movie">
+                    
                     <h3>{currentMovie.title}</h3>
                     <div className="movie_info">
                         <p>{currentMovie.year}</p>
@@ -68,7 +70,11 @@ export const MovieDetails = () => {
                             <Link to={'#'} onClick={(e) => onDelete(movieId, e)}>Delete</Link>
                         </div>
                         : ''}
-
+                        <div className='likes'>
+                        {loggedUser
+                        ? <Likes currentMovie={currentMovie} loggedUser={loggedUser}/>
+                        : <i>Likes: {currentMovie.likes ? currentMovie.likes.length : 0}</i>}
+                        </div>
                 </div>
             </section>
             <svg
