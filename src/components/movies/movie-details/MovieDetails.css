@@ -198,3 +198,7 @@
     min-height: 50%;
   }
   
+  .users-buttons {
+    display: flex;
+    justify-content: space-around;
+  }

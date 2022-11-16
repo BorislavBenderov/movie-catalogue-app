@@ -1,6 +1,6 @@
 import { doc, onSnapshot } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { database } from '../../../firebaseConfig';
 import './MovieDetails.css';
 
@@ -36,6 +36,10 @@ export const MovieDetails = () => {
                         <p>
                             {currentMovie.description}
                         </p>
+                    </div>
+                    <div className="users-buttons">
+                    <Link to={`/edit/${currentMovie.id}`}>Edit</Link>
+                    <Link to={`/edit/${currentMovie.id}`}>Delete</Link>
                     </div>
                 </div>
             </section>
