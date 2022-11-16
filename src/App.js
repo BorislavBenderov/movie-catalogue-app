@@ -8,6 +8,7 @@ import { Register } from './components/auth/Register';
 import { CreateMovie } from './components/create-edit/CreateMovie';
 import { EditMovie } from './components/create-edit/EditMovie';
 import { MovieDetails } from './components/movies/movie-details/MovieDetails';
+import { MyMovies } from './components/movies/mymovies/MyMovies';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <main>
           <Routes>
             <Route path='/' element={<Movies />} />
+            <Route path='/mymovies' element={<MyMovies />} />
             <Route path='/:movieId' element={<MovieDetails />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
