@@ -98,7 +98,7 @@ export const MovieDetails = () => {
                     Comments
                 </h4>
                 {currentMovie.comments && currentMovie.comments.length > 0
-                    ? currentMovie.comments.map(comment => <Comments key={comment.id} comment={comment} curId={currentMovie.id} />)
+                    ? currentMovie.comments.map(comment => <Comments key={comment.id} comment={comment} />)
                     : <p>No comments in database!</p>}
             </div>
         </>

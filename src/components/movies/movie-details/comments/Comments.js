@@ -1,10 +1,21 @@
 import { arrayRemove, doc, updateDoc } from "firebase/firestore";
+import { useContext } from "react";
+import { AuthContext } from "../../../../contexts/AuthContext";
+import { MovieContext } from "../../../../contexts/MovieContext";
 import { database } from "../../../../firebaseConfig";
 
-export const Comments = ({ comment, curId }) => {
+export const Comments = ({ comment }) => {
+    const { currentMovie } = useContext(MovieContext);
+    const { loggedUser } = useContext(AuthContext);
+    
+    let ownerOfComment = null;
+
+    if (loggedUser) {
+        ownerOfComment = loggedUser.uid === comment.ownerId;
+    }
 
     const onDeleteComment = async () => {
-        await updateDoc(doc(database, 'movies', curId), {
+        await updateDoc(doc(database, 'movies', currentMovie.id), {
             comments: arrayRemove(comment)
         })
     }
@@ -16,9 +27,11 @@ export const Comments = ({ comment, curId }) => {
                     {comment.email}
                 </h6>
                 <p>
-                {comment.comment}
+                    {comment.comment}
                 </p>
-                <button onClick={onDeleteComment}>Delete</button>
+                {ownerOfComment
+                    ? <button onClick={onDeleteComment}>Delete</button>
+                    : ''}
             </li>
         </ul>
     );
