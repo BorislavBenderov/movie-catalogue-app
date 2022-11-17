@@ -91,14 +91,14 @@ export const MovieDetails = () => {
                 </svg>
             </div>
             {loggedUser
-                ? <AddComment movieId={currentMovie.id}/>
+                ? <AddComment movieId={currentMovie.id} />
                 : ''}
             <div className="comments">
                 <h4 className="comments-title">
                     Comments
                 </h4>
                 {currentMovie.comments && currentMovie.comments.length > 0
-                    ? currentMovie.comments.map(comment => <Comments key={comment.id} comment={comment}/>)
+                    ? currentMovie.comments.map(comment => <Comments key={comment.id} comment={comment} curId={currentMovie.id} />)
                     : <p>No comments in database!</p>}
             </div>
         </>

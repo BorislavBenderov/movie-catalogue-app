@@ -1,4 +1,14 @@
-export const Comments = ({comment}) => {
+import { arrayRemove, doc, updateDoc } from "firebase/firestore";
+import { database } from "../../../../firebaseConfig";
+
+export const Comments = ({ comment, curId }) => {
+
+    const onDeleteComment = async () => {
+        await updateDoc(doc(database, 'movies', curId), {
+            comments: arrayRemove(comment)
+        })
+    }
+
     return (
         <ul className="comments-section">
             <li className="comments-box">
@@ -8,6 +18,7 @@ export const Comments = ({comment}) => {
                 <p>
                 {comment.comment}
                 </p>
+                <button onClick={onDeleteComment}>Delete</button>
             </li>
         </ul>
     );
