@@ -39,7 +39,7 @@ export const Header = () => {
                             <Link to="/register" className="navbar-signin">
                                 <span>Register</span>
                             </Link> </>
-                        : <> <span>User:{loggedUser.email}</span>
+                        : <> <span>{loggedUser.email}</span>
                             <Link to="/mymovies" className="navbar-signin">
                                 <span>My Movies</span>
                             </Link>

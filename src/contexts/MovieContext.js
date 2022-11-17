@@ -8,8 +8,8 @@ export const MovieContextProvider = ({ children }) => {
     const [movies, setMovies] = useState([]);
     const [currentMovie, setCurrentMovie] = useState([]);
     const [search, setSearch] = useState('');
-    const searchedMovies = movies.filter(movie => movie.title.toLowerCase().includes(search.toLowerCase()))
-                        || movies.filter(movie => movie.genre.toLowerCase().includes(search.toLowerCase()));
+    const searchedMovies = movies.filter(movie => movie.title.toLowerCase().includes(search.toLowerCase())
+                        || movie.genre.toLowerCase().includes(search.toLowerCase()));
 
     useEffect(() => {
         const q = query(collection(database, 'movies'), orderBy("timestamp", "desc"));

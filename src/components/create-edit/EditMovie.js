@@ -22,6 +22,7 @@ export const EditMovie = () => {
             [e.target.name]: e.target.value
         }));
     }
+    
     const onEdit = (e) => {
         e.preventDefault();
 
@@ -55,7 +56,6 @@ export const EditMovie = () => {
         .catch((err) => {
             alert(err.message);
         })
-
     }
 
     return (
@@ -64,7 +64,7 @@ export const EditMovie = () => {
             <label htmlFor="title"></label>
             <input type="text" placeholder="Title" id="title" name="title" value={values.title} onChange={changeHandler}/>
             <label htmlFor="description"></label>
-            <input type="text" placeholder="Description" id="description" name="description" value={values.description} onChange={changeHandler}/>
+            <textarea type="text" placeholder="Description" id="description" name="description" value={values.description} onChange={changeHandler}/>
             <label htmlFor="imageUrl"></label>
             <input type="text" placeholder="Image" id="imageUrl" name="imageUrl" value={values.imageUrl} onChange={changeHandler}/>
             <label htmlFor="genre"></label>

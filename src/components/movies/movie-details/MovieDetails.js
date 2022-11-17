@@ -15,8 +15,6 @@ export const MovieDetails = () => {
     const { loggedUser } = useContext(AuthContext);
     const { movieId } = useParams();
 
-    
-
     let isOwner = null;
 
     if (loggedUser) {

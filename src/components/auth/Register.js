@@ -29,12 +29,14 @@ export const Register = () => {
 
         setPersistence(auth, browserLocalPersistence)
         .then(() => {
-            createUserWithEmailAndPassword(auth, email, password);
-        })
-        .catch((err) => {
-            alert(err.message);
-        })
-        navigate('/');
+            createUserWithEmailAndPassword(auth, email, password)
+            .then(() => {
+                navigate('/');
+            })
+            .catch((err) => {
+                alert(err.message);
+            })
+        })       
     }
 
     return (

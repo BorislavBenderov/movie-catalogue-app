@@ -55,7 +55,7 @@ export const CreateMovie = () => {
             <label htmlFor="title"></label>
             <input type="text" placeholder="Title" id="title" name="title" />
             <label htmlFor="description"></label>
-            <input type="text" placeholder="Description" id="description" name="description" />
+            <textarea type="text" placeholder="Description" id="description" name="description" />
             <label htmlFor="imageUrl"></label>
             <input type="text" placeholder="Image" id="imageUrl" name="imageUrl" />
             <label htmlFor="genre"></label>

@@ -23,12 +23,14 @@ export const Login = () => {
 
         setPersistence(auth, browserLocalPersistence)
         .then(() => {
-            signInWithEmailAndPassword(auth, email, password);
-        })
-        .catch((err) => {
-            alert(err.message);
-        })
-        navigate('/');
+            signInWithEmailAndPassword(auth, email, password)
+            .then(() => {
+                navigate('/');
+            })
+            .catch((err) => {
+                alert(err.message);
+            })
+        }) 
     }
 
     return (
