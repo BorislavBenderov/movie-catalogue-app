@@ -25,7 +25,7 @@ nav {
 }
 
 .navbar {
-  background-color: red;
+  background-color: rgb(51, 8, 8);
   height: 100px;
   display: flex;
   justify-content: space-between;
@@ -325,7 +325,7 @@ input~.checked-radio-bg {
 }
 
 footer {
-  background: red;
+  background: rgb(51, 8, 8);
   padding: 80px var(--px) 40px;
 }
 
@@ -368,15 +368,18 @@ footer {
 }
 
 .comments {
-  background: blue;
+  background: darkblue;
   background-repeat: no-repeat;
   background-size: cover;
   max-width: 550px;
-  border-radius: 4px;
   position: relative;
   overflow: hidden;
   margin: auto;
-  margin-top: 100px;
+}
+
+.comments>p {
+  text-align: center;
+  padding-top: 10px;
 }
 
 .comments-title {
@@ -393,7 +396,7 @@ footer {
 }
 
 .comments-box {
-  background-color: red;
+  background-color: black;
   margin: 10px;
   padding: 10px;
 }
@@ -420,8 +423,27 @@ footer {
   gap: 10px;
 }
 
-.comment-form > input {
-  color: gray;
-  background-color: green;
-  padding: 5px;
+.addcomment-box {
+  max-width: 550px;
+  padding: 5px 10px;
+  margin: auto;
+  background-color: darkblue;
+}
+
+.addcomment-box p {
+  text-align: center;
+  font-size: 28px;
+  color: #777;
+}
+
+.addcomment-box textarea {
+  background-color: black;
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid #ddd;
+  color: white;
 }

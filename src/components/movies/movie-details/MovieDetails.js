@@ -15,12 +15,14 @@ export const MovieDetails = () => {
     const { loggedUser } = useContext(AuthContext);
     const { movieId } = useParams();
 
+    
+
     let isOwner = null;
 
     if (loggedUser) {
         isOwner = currentMovie.ownerId === loggedUser.uid;
     }
-
+    
     useEffect(() => {
         onSnapshot(doc(database, 'movies', movieId), (snapshot) => {
             setCurrentMovie({ ...snapshot.data(), id: snapshot.id });
@@ -90,9 +92,6 @@ export const MovieDetails = () => {
                     />
                 </svg>
             </div>
-            {loggedUser
-                ? <AddComment movieId={currentMovie.id} />
-                : ''}
             <div className="comments">
                 <h4 className="comments-title">
                     Comments
@@ -101,6 +100,9 @@ export const MovieDetails = () => {
                     ? currentMovie.comments.map(comment => <Comments key={comment.id} comment={comment} />)
                     : <p>No comments in database!</p>}
             </div>
+            {loggedUser
+                ? <AddComment movieId={currentMovie.id} />
+                : ''}           
         </>
     );
 }

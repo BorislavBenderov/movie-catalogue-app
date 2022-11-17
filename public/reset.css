@@ -17,7 +17,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--white); }
 
 
 body {
-  background-color:  red;
+  background-color:  rgb(51, 8, 8);
   color: var(--off-white);
   -webkit-font-smoothing: antialiased;
 }

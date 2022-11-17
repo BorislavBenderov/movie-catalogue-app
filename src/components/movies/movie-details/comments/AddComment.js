@@ -35,14 +35,18 @@ export const AddComment = ({ movieId }) => {
     }
 
     return (
-        <form className="comment-form" onSubmit={onComment}>
-            <input
-                type="text"
-                placeholder="Add a comment"
-                name="comment"
-                id="comment"
-            />
-            <button className="btn btn-outline-primary btn-sm" type="submit">Add</button>
-        </form>
+        <div className="addcomment-box">
+            <p>Leave a Comment</p>
+            <form className="comment-form" onSubmit={onComment}>
+                <textarea
+                    rows="10"
+                    type="text"
+                    placeholder="Add a comment"
+                    name="comment"
+                    id="comment"
+                />
+                <button className="btn btn-outline-primary btn-sm" type="submit">Add</button>
+            </form>
+        </div>
     );
 }

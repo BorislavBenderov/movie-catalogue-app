@@ -1,5 +1,5 @@
 .card {
-    background: blue;
+    background: black;
     background-repeat: no-repeat;
     background-size: cover;
     display: -webkit-box;
@@ -121,7 +121,7 @@
   .card .wavy {
     position: absolute;
     bottom: calc(0px);
-    fill: black;
+    fill: darkblue;
     -webkit-transform: rotate(180deg);
             transform: rotate(180deg);
     z-index: 0;
