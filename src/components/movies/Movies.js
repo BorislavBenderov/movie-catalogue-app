@@ -3,7 +3,7 @@ import { MovieContext } from '../../contexts/MovieContext';
 import { MovieCard } from './MovieCard';
 
 export const Movies = () => {
-    const { movies } = useContext(MovieContext);
+    const { movies, searchedMovies } = useContext(MovieContext);
     
     return (
         <>
@@ -22,7 +22,7 @@ export const Movies = () => {
             <section className="movies">
                 <div className="movies-grid">
                     {movies.length > 0
-                        ? movies.map(movie => <MovieCard key={movie.id} movie={movie} />)
+                        ? searchedMovies.map(movie => <MovieCard key={movie.id} movie={movie} />)
                         : <p>No movies in database!</p>}
                 </div>
                 <button className="load-more">LOAD MORE</button>

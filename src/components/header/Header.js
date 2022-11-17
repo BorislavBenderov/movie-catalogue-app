@@ -1,11 +1,13 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { AuthContext } from '../../contexts/AuthContext';
 import { useContext } from 'react';
+import { SearchBar } from './search-bar/SearchBar';
 
 export const Header = () => {
     const { auth, loggedUser } = useContext(AuthContext);
     const navigate = useNavigate();
+    const { pathname } = useLocation();
 
     const onLogout = () => {
         signOut(auth)
@@ -38,20 +40,9 @@ export const Header = () => {
                     </ul>
                 </nav>
                 <div className="navbar-actions">
-                    <form className="navbar-form">
-                        <input
-                            type="text"
-                            name="search"
-                            placeholder="I'm looking for..."
-                            className="navbar-form-search"
-                        />
-                        <button className="navbar-form-btn">
-
-                        </button>
-                        <button className="navbar-form-close">
-
-                        </button>
-                    </form>
+                    {pathname === '/' || pathname === '/mymovies'
+                        ? <SearchBar />
+                        : ''}
                     <button className="navbar-search-btn">
                     </button>
                     {!loggedUser
