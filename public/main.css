@@ -397,17 +397,24 @@ footer {
 
 .comments-box {
   background-color: black;
-  margin: 10px;
+  margin: 5px;
   padding: 10px;
+
 }
 
 .comments-box>h6 {
   text-align: left;
   color: white;
+  margin-bottom: 10px;
 }
 
 .comments-box>p {
   color: white;
+}
+
+.comments-box>button {
+  display: block;
+  margin: auto;
 }
 
 .comments-button {

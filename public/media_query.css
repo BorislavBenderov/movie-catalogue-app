@@ -20,39 +20,6 @@
 
   header.active { top: 250px; }
 
-
-  .navbar-menu-btn {
-    display: block;
-    position: absolute;
-    top:  50%;
-    left: var(--px);
-    transform: translateY(-50%);
-  }
-
-  .navbar-brand { margin-left: 50px; }
-
-  .navbar-menu-btn span {
-    display: block;
-    background: var(--off-white);
-    width: 25px;
-    height: 2px;
-    margin: 8px;
-  }
-
-  .navbar-menu-btn .two   { width: 20px; }
-  .navbar-menu-btn .three { width: 15px; }
-
-  .navbar-menu-btn.active span { background: var(--light-azure); }
-
-  .navbar-menu-btn.active .one { transform: rotate(45deg) translateY(14px); }
-
-  .navbar-menu-btn.active .two { width: 0; }
-
-  .navbar-menu-btn.active .three {
-    width: 25px;
-    transform: rotate(-45deg) translateY(-14px); 
-  }
-
   nav {
     position: fixed;
     top: -250px;
@@ -78,12 +45,6 @@
   }
 
   .navbar-form {
-    position: absolute;
-    top:   100%;
-    left:  var(--px);
-    right: var(--px);
-    height: 100%;
-    background: var(--rich-black-fogra-29);
     margin-right: 0;
     display:         flex;
     justify-content: space-between;
@@ -96,26 +57,6 @@
   .navbar-form-search { margin-right: 40px; }
 
   .navbar-form-btn { right: 80px; }
-
-  .navbar-form-close {
-    display: block;
-    padding-top: 4px;
-    opacity: 0.8;
-  }
-
-  .navbar-form-close:hover { opacity: 1; }
-
-  .navbar-form-close ion-icon {
-    font-size: 20px;
-    color: var(--light-azure);
-  }
-
-  .navbar-search-btn {
-    display: block;
-    margin-right: 100px;
-    padding-top: 5px;
-  }
-
 
   .banner { margin-top: 100px; }
 
@@ -186,12 +127,6 @@
     --fs-lg:           20px;
 
   }
-
-  .navbar-search-btn { margin-right: 20px; }
-
-  .navbar-form-search { margin-right: 20px; }
-
-  .navbar-form-btn { right: 55px; }
 
   .footer-copyright { flex-direction: column-reverse; }
 

@@ -5,13 +5,13 @@ import { MovieCard } from '../MovieCard';
 import MC from '../../../assets/movie-catalogue.jpg';
 
 export const MyMovies = () => {
-    const { movies } = useContext(MovieContext);
+    const { searchedMovies } = useContext(MovieContext);
     const { loggedUser } = useContext(AuthContext);
 
     let myMovies = [];
 
     if (loggedUser) {
-        myMovies = movies.filter(movie => movie.ownerId === loggedUser.uid);
+        myMovies = searchedMovies.filter(movie => movie.ownerId === loggedUser.uid);
     }
 
     return (
