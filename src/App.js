@@ -8,11 +8,10 @@ import { CreateMovie } from './components/create-edit/CreateMovie';
 import { EditMovie } from './components/create-edit/EditMovie';
 import { MovieDetails } from './components/movies/movie-details/MovieDetails';
 import { MyMovies } from './components/movies/mymovies/MyMovies';
-import { useContext } from 'react';
-import { AuthContext } from './contexts/AuthContext';
+import { NotFound } from './components/not-found/NotFound';
+import { ProtectedRoutes } from './ProtectedRoutes';
 
 function App() {
-  const { loggedUser } = useContext(AuthContext);
 
   return (
     <BrowserRouter>
@@ -20,17 +19,20 @@ function App() {
         <Header />
         <main>
           <Routes>
+            <Route path='*' element={<NotFound />} />
             <Route path='/' element={<Movies />} />
-            <Route path='/mymovies' element={loggedUser ? <MyMovies /> : <Movies />} />
-            <Route path='/:movieId' element={<MovieDetails />} />
-            <Route path='/login' element={!loggedUser ? <Login /> : <Movies />} />
-            <Route path='/register' element={!loggedUser ? <Register /> : <Movies />} />
-            <Route path='/create' element={loggedUser ? <CreateMovie /> : <Movies />} />
-            <Route path='/edit/:movieId' element={loggedUser ? <EditMovie /> : <Movies />} />
+            <Route element={<ProtectedRoutes />}>
+              <Route path='/mymovies' element={<MyMovies />} />             
+              <Route path='/create' element={<CreateMovie />} />
+              <Route path='/edit/:movieId' element={<EditMovie />} />
+            </Route>
+            <Route path='/movies/:movieId' element={<MovieDetails />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
           </Routes>
         </main>
-        <Footer />
       </div>
+      <Footer />
     </BrowserRouter >
   );
 }
