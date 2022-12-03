@@ -367,6 +367,7 @@ footer {
 .comments>p {
   text-align: center;
   padding-top: 10px;
+  margin-bottom: 5px;
 }
 
 .comments-title {
@@ -443,13 +444,8 @@ footer {
   color: white;
 }
 
-.not-found {
-  position: relative;
-}
 
 .not-found-info {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%);
+  margin: 200px auto;
+  text-align: center;
 }
