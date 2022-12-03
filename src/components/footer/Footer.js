@@ -1,11 +1,7 @@
 export const Footer = () => {
     return (
         <footer>
-            <div className="footer-copyright">
-                <div className="copyright">
-                    <p>© copyright 2022</p>
-                </div>
-            </div>
+                    <p>© 2022 - Borislav Benderov</p>
         </footer>
     );
 }
