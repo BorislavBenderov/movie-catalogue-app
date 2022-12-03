@@ -57,7 +57,7 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rebeccapurple;
+  background: rgb(68, 9, 9);
   border-radius: 5em;
   border: 3px solid var(--rich-black-fogra-29);
 }
