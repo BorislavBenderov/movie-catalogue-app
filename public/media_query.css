@@ -131,4 +131,12 @@
   .footer-copyright { flex-direction: column-reverse; }
 
   .wrapper { margin-bottom: 20px; }
+
+  .navbar-form {
+    display: none;
+  }
+
+  .navbar-actions>span {
+    display: none;
+  }
 }
