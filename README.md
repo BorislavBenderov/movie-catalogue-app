@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# Movie Catalogue Application with React JS
+![My Image](/src/assets/home.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Description
 
-## Available Scripts
+Movie Catalogue application created with React JS. In this application users have possibility
+to create, edit and delete movies, add and delete comment and like movies.
 
-In the project directory, you can run:
+## Services
 
-### `npm start`
+# Login
+![My Image](/src/assets/login.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This service is initialized with two users, which can be used for immediate testing:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- borko@abv.bg: 123456
+- gabi@abv.bg: 123456
 
-### `npm test`
+# Register
+![My Image](/src/assets/register.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Create a new user by entered email, password and confirmation password.
 
-### `npm run build`
+# Home
+![My Image](/src/assets/home-user.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+After login or register user will be redirect to a home page. On this page user can see all movies with their titles,
+genre and year.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Movie Details
+![My Image](/src/assets/movie-details.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+When user click on a movie he will see this movie with his title, rating, description, genre and year.
 
-### `npm run eject`
+# Comments and Likes
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+On movie details page user habe possibility to create comments and delete them and like movie.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Owner of movie
+![My Image](/src/assets/owner-details.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+If user is owner of the movie he will see edit and delete buttons
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Edit Movie
+![My Image](/src/assets/edit.png)
 
-## Learn More
+When user click on edit button on some of his movies he can possibility to edit current movie title, description,
+genre, rating, image and year.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Delete Movie
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+When user click on delete button on some of his movies user will be asked to delete this movie. If he confirm movie
+will be deleted.
 
-### Code Splitting
+# User Movies
+![My Image](/src/assets/my-movies.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+When user click on my movies button in navigation panel he will see all of his movies (if any).
 
-### Analyzing the Bundle Size
+# Create Movie
+![My Image](/src/assets/create.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+When user click on create movie button in navigation panel he will see add movie page. On this page user can create a 
+movie with title, description, genre, rating, image and year.
 
-### Making a Progressive Web App
+# Search
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+User have possibility to search movies by their titles or genres.
 
-### Advanced Configuration
+# Logout
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+When user click on logout button in navigation panel his session has expired.
 
-### Deployment
+# Guest users
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Guest users can see all movies and their details and comments but dont have possibility to make any changes.
