@@ -51,7 +51,7 @@ export const EditMovie = () => {
 
         updateDoc(doc(database, 'movies', currentMovie.id), movieData)
         .then(() => {
-            navigate(`/${currentMovie.id}`)
+            navigate(`/movies/${currentMovie.id}`);
         })
         .catch((err) => {
             alert(err.message);
