@@ -449,3 +449,9 @@ footer {
   margin: 200px auto;
   text-align: center;
 }
+
+.errors {
+  text-align: center;
+  color: red;
+  margin-top: 10px;
+}
