@@ -3,8 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from "../../contexts/AuthContext";
 import { serverTimestamp, addDoc, collection } from 'firebase/firestore';
 import { database } from "../../firebaseConfig";
+import { useState } from "react";
 
 export const CreateMovie = () => {
+    const [err, setErr] = useState('');
     const { loggedUser } = useContext(AuthContext);
     const navigate = useNavigate();
 
@@ -21,7 +23,7 @@ export const CreateMovie = () => {
         const rating = formData.get('rating');
 
         if (title === '' || description === '' || imageUrl === '' || genre === '' || year === '' || rating === '') {
-            alert('Please fill all the fields');
+            setErr('Please fill all the fields');
             return;
         }
 
@@ -43,7 +45,7 @@ export const CreateMovie = () => {
             navigate('/');
         })
         .catch((err) => {
-            alert(err.message);
+            setErr(err.message);
         })
 
     }
@@ -65,6 +67,7 @@ export const CreateMovie = () => {
             <label htmlFor="rating"></label>
             <input type="text" placeholder="Rating" id="rating" name="rating" />
             <button type="submit">Add</button>
+            <p className="errors">{err}</p>
         </form>
     );
 }

@@ -5,6 +5,7 @@ import { MovieContext } from "../../contexts/MovieContext";
 import { database } from "../../firebaseConfig";
 
 export const EditMovie = () => {
+    const [err, setErr] = useState('');
     const navigate = useNavigate();
     const { currentMovie } = useContext(MovieContext);
     const [values, setValues] = useState({
@@ -36,7 +37,7 @@ export const EditMovie = () => {
         const rating = formData.get('rating');
 
         if (title === '' || description === '' || imageUrl === '' || genre === '' || year === '' || rating === '') {
-            alert('Please fill all the fields');
+            setErr('Please fill all the fields');
             return;
         }
 
@@ -54,7 +55,7 @@ export const EditMovie = () => {
             navigate(`/movies/${currentMovie.id}`);
         })
         .catch((err) => {
-            alert(err.message);
+            setErr(err.message);
         })
     }
 
@@ -74,6 +75,7 @@ export const EditMovie = () => {
             <label htmlFor="rating"></label>
             <input type="text" placeholder="Rating" id="rating" name="rating" value={values.rating} onChange={changeHandler}/>
             <button type="submit">Edit</button>
+            <p className="errors">{err}</p>
         </form>
     );
 }
