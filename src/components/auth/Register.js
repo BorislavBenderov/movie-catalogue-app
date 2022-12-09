@@ -3,8 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, setPersistence, browserLocalPersistence } from 'firebase/auth';
 import { AuthContext } from '../../contexts/AuthContext';
 import './auth.css';
+import { useState } from 'react';
 
 export const Register = () => {
+    const [err, setErr] = useState('');
     const { auth } = useContext(AuthContext);
     const navigate = useNavigate();
 
@@ -18,12 +20,12 @@ export const Register = () => {
         const repeatPassword = formData.get('repeatPassword');
 
         if (email === '' || password === '' || repeatPassword === '') {
-            alert('Please fill all the fields');
+            setErr('Please fill all the fields');
             return;
         }
 
         if (password !== repeatPassword) {
-            alert('Your password and confirmation password do not match');
+            setErr('Your password and confirmation password do not match');
             return;
         }
 
@@ -34,7 +36,7 @@ export const Register = () => {
                 navigate('/');
             })
             .catch((err) => {
-                alert(err.message);
+                setErr(err.message);
             })
         })       
     }
@@ -49,6 +51,7 @@ export const Register = () => {
             <label htmlFor="repeatPassword"></label>
             <input type="password" placeholder="Repeat Password" id="repeatPassword" name="repeatPassword" />
             <button type="submit">Register</button>
+            <p className="errors">{err}</p>
         </form>
     );
 }
