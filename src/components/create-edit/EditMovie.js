@@ -33,11 +33,16 @@ export const EditMovie = () => {
         const description = formData.get('description');
         const imageUrl = formData.get('imageUrl');
         const genre = formData.get('genre');
-        const year = formData.get('year');
-        const rating = formData.get('rating');
+        const year = Number(formData.get('year'));
+        const rating = Number(formData.get('rating'));
 
         if (title === '' || description === '' || imageUrl === '' || genre === '' || year === '' || rating === '') {
             setErr('Please fill all the fields');
+            return;
+        }
+
+        if (year !== Number(year) || rating !== Number(rating)) {
+            setErr('Please add a number for year/rating!');
             return;
         }
 
