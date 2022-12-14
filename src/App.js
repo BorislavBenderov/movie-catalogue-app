@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route, HashRouter } from 'react-router-dom';
 import { Header } from './components/header/Header';
 import { Movies } from './components/movies/Movies';
 import { Footer } from './components/footer/Footer';
@@ -14,7 +14,7 @@ import { ProtectedRoutes } from './ProtectedRoutes';
 function App() {
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="container">
         <Header />
         <main>
@@ -33,7 +33,7 @@ function App() {
         </main>
       </div>
       <Footer />
-    </BrowserRouter >
+    </HashRouter >
   );
 }
 
