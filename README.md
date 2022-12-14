@@ -74,3 +74,7 @@ When user click on logout button in navigation panel his session has expired.
 ### Guest users
 
 Guest users can see all movies and their details and comments but dont have possibility to make any changes.
+
+## Live Demo
+
+https://borislavbenderov.github.io/movie-catalogue-app
