@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/movie-catalogue-app/static/css/main.0599ee46.css",
-    "main.js": "/movie-catalogue-app/static/js/main.eea77b99.js",
+    "main.js": "/movie-catalogue-app/static/js/main.312a9957.js",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/movie-catalogue-app/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
     "static/media/movie-catalogue.jpg": "/movie-catalogue-app/static/media/movie-catalogue.e0b6d26f4cb65f2f2731.jpg",
     "static/media/fontawesome-webfont.eot": "/movie-catalogue-app/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
@@ -10,10 +10,10 @@
     "static/media/fontawesome-webfont.woff2?v=4.7.0": "/movie-catalogue-app/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
     "index.html": "/movie-catalogue-app/index.html",
     "main.0599ee46.css.map": "/movie-catalogue-app/static/css/main.0599ee46.css.map",
-    "main.eea77b99.js.map": "/movie-catalogue-app/static/js/main.eea77b99.js.map"
+    "main.312a9957.js.map": "/movie-catalogue-app/static/js/main.312a9957.js.map"
   },
   "entrypoints": [
     "static/css/main.0599ee46.css",
-    "static/js/main.eea77b99.js"
+    "static/js/main.312a9957.js"
   ]
 }
