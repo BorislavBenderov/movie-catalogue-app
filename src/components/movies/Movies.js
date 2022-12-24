@@ -4,8 +4,8 @@ import { MovieCard } from './MovieCard';
 import MC from '../../assets/movie-catalogue.jpg';
 
 export const Movies = () => {
-    const { movies, searchedMovies } = useContext(MovieContext);
-    
+    const { movies, searchedMovies, isLoading } = useContext(MovieContext);
+
     return (
         <>
             <section className="banner">
@@ -22,9 +22,14 @@ export const Movies = () => {
             </section>
             <section className="movies">
                 <div className="movies-grid">
-                    {movies.length > 0
-                        ? searchedMovies.map(movie => <MovieCard key={movie.id} movie={movie} />)
-                        : <p>No movies in database!</p>}
+                    {!isLoading ?
+                        <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                        :
+                        movies.length > 0
+                            ? searchedMovies.map(movie => <MovieCard key={movie.id} movie={movie} />)
+                            : <p>No movies in database!</p>
+                    }
+
                 </div>
             </section>
         </>
