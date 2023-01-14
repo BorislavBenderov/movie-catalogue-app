@@ -6,6 +6,7 @@ import { database } from "../../firebaseConfig";
 
 export const EditMovie = () => {
     const [err, setErr] = useState('');
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const { currentMovie } = useContext(MovieContext);
     const [values, setValues] = useState({
@@ -55,12 +56,16 @@ export const EditMovie = () => {
             rating: Number(rating),
         };
 
+        setLoading(true);
+
         updateDoc(doc(database, 'movies', currentMovie.id), movieData)
         .then(() => {
             navigate(`/movies/${currentMovie.id}`);
+            setLoading(false);
         })
         .catch((err) => {
             setErr(err.message);
+            setLoading(false);
         })
     }
 
@@ -79,7 +84,7 @@ export const EditMovie = () => {
             <input type="text" placeholder="Year" id="year" name="year" value={values.year} onChange={changeHandler}/>
             <label htmlFor="rating"></label>
             <input type="text" placeholder="Rating" id="rating" name="rating" value={values.rating} onChange={changeHandler}/>
-            <button type="submit">Edit</button>
+            <button type="submit">{loading ? "Loading..." : "Edit"}</button>
             <p className="errors">{err}</p>
         </form>
     );

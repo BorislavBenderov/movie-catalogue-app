@@ -7,6 +7,7 @@ import './auth.css';
 
 export const Login = () => {
     const [err, setErr] = useState('');
+    const [loading, setLoading] = useState(false);
     const { auth } = useContext(AuthContext);
     const navigate = useNavigate();
 
@@ -23,14 +24,17 @@ export const Login = () => {
             return;
         }
 
+        setLoading(true);
         setPersistence(auth, browserLocalPersistence)
         .then(() => {
             signInWithEmailAndPassword(auth, email, password)
             .then(() => {
                 navigate('/');
+                setLoading(false);
             })
             .catch((err) => {
                 setErr(err.message);
+                setLoading(false);
             })
         }) 
     }
@@ -42,7 +46,7 @@ export const Login = () => {
             <input type="text" placeholder="Email" id="email" name="email" />
             <label htmlFor="password">Password</label>
             <input type="password" placeholder="Password" id="password" name="password" />
-            <button type="submit">Log In</button>
+            <button type="submit">{loading ? "Loading..." : "Log In"}</button>
             <p className="errors">{err}</p>
         </form>
     );
